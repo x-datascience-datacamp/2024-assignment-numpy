@@ -47,3 +47,4 @@ jobs:
         flake8 . --count --max-complexity=10 --max-line-length=80 --statistics
     - name: Check doc style with pydocstyle
       run: pydocstyle
+
