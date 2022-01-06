@@ -17,7 +17,7 @@
   - Check locally that your solution meet the test by running `pytest` from the root of the repo. You may need to install `pytest` using `pip` or `conda`.
   - Check the code formating for your solution using `flake8`. You may need to install `flake8` using `pip` or `conda`.
   - Open the pull request on GitHub:
-     - Create a commit with `git add -u` and `git commit -m "UP my solution"
+     - Create a commit with `git add -u` and `git commit -m "UP my solution"`
      - Push your branch on your fork: `git push -u origin my_user_name`
      - Go to your repo in your browser and click the `Open a PR` button.
   - Keep pushing to your branch until the continuous integration system is green.
