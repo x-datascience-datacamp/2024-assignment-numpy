@@ -1,3 +1,10 @@
+"""numpy_questions.py
+
+This module contains two functions:
+1. max_index: Returns the index of the maximum value in a 2D numpy array.
+2. wallis_product: Computes an approximation of pi using the Wallis product.
+"""
+
 import numpy as np
 
 
@@ -24,7 +31,7 @@ def max_index(X):
     if not isinstance(X, np.ndarray):
         raise ValueError("Input array is not a numpy array.")
 
-    # Check whether input is 2D
+    # Check whether input is 2D array
     if X.ndim != 2:
         raise ValueError("Input array is not 2D.")
 
