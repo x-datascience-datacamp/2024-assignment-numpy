@@ -75,7 +75,7 @@ def wallis_product(n_terms):
     if n_terms>0:
         for i in range(1,n_terms+1):
             P *= (4*i**2)/((2*i-1)*(2*i+1))
-    return 2*P 
+    return 2*P
         
     # : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
