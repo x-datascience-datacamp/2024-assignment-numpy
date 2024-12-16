@@ -41,12 +41,15 @@ def max_index(X):
     j = 0
 
     # TODO
+    max_idx = np.argmax(X)
+    i, j = np.unravel_index(max_idx, X.shape)
+    '''
     rowMax=np.max(X, axis=1)
     maxValue=np.max(rowMax)   
     indices= np.where(X==maxValue)     
     i=int(indices[0])
     j=int(indices[1])
-    #return indices
+    '''
     return i, j
 
 
@@ -89,9 +92,3 @@ X=np.array(
         [1, 78, 20]
     ]
 )
-
-print(max_index(X))
-
-#trying the second function
-
-print("The approximation if the number pi of the order 1000 is: ", wallis_product(1000))
