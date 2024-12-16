@@ -41,6 +41,22 @@ def max_index(X):
     j = 0
 
     # TODO
+    # Check whether input is a numpy array 
+    if not isinstance(X, np.ndarray):
+        raise ValueError("ValueError:input array is not a numpy array.")
+    
+    # Check whether input is 2D
+    if X.ndim != 2:
+        raise ValueError("ValueError:input array is not 2D.")
+    
+    # initial the max_val
+    max = float('-inf')  
+
+    for row in range(X.shape[0]):  # go through all ligns
+        for col in range(X.shape[1]):  # go through all columns
+            if X[row, col] > max:  #
+                max = X[row, col]  # update the max_value
+                i, j = row, col  # update the max_index
 
     return i, j
 
@@ -64,4 +80,15 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    if n_terms < 0:
+        raise ValueError("ValueError:n_terms isn't a positive value.")
+    
+    product = 1.0  #  `n_terms=0` will consider the product to be `1`, so n_terms >= 0 starts product 1.0
+    for n in range(1, n_terms + 1):  # go through from 1 to n_terms 
+        numerator = 4 * n**2  
+        denominator = 4 * n**2 - 1  
+        product *= numerator / denominator  # calcaulate the each term result 
+
+    return 2 * product  # pi/2 is wallis formula result
+
