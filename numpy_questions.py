@@ -1,20 +1,3 @@
-"""Assignment - using numpy and making a PR.
-
-The goals of this assignment are:
-    * Use numpy in practice with two easy exercises.
-    * Use automated tools to validate the code (`pytest` and `flake8`)
-    * Submit a Pull-Request on github to practice `git`.
-
-The two functions below are skeleton functions. The docstrings explain what
-are the inputs, the outputs and the expected error. Fill the function to
-complete the assignment. The code should be able to pass the test that we
-wrote. To run the tests, use `pytest test_numpy_question.py` at the root of
-the repo. It should say that 2 tests ran with success.
-
-We also ask to respect the pep8 convention: https://pep8.org.
-This will be enforced with `flake8`. You can check that there is no flake8
-errors by calling `flake8` at the root of the repo.
-"""
 import numpy as np
 
 
@@ -29,7 +12,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -37,26 +20,23 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
-
-    # TODO
-    # Check whether input is a numpy array 
+    # Check whether input is a numpy array
     if not isinstance(X, np.ndarray):
-        raise ValueError("ValueError:input array is not a numpy array.")
-    
+        raise ValueError("Input array is not a numpy array.")
+
     # Check whether input is 2D
     if X.ndim != 2:
-        raise ValueError("ValueError:input array is not 2D.")
-    
-    # initial the max_val
-    max = float('-inf')  
+        raise ValueError("Input array is not 2D.")
 
-    for row in range(X.shape[0]):  # go through all ligns
-        for col in range(X.shape[1]):  # go through all columns
-            if X[row, col] > max:  #
-                max = X[row, col]  # update the max_value
-                i, j = row, col  # update the max_index
+    # Initialize the max value and indices
+    max_val = float('-inf')
+    i, j = 0, 0
+
+    for row in range(X.shape[0]):  # Iterate through all rows
+        for col in range(X.shape[1]):  # Iterate through all columns
+            if X[row, col] > max_val:
+                max_val = X[row, col]  # Update the maximum value
+                i, j = row, col  # Update the indices of the maximum
 
     return i, j
 
@@ -77,17 +57,19 @@ def wallis_product(n_terms):
     -------
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
+
+    Raises
+    ------
+    ValueError
+        If n_terms is negative.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-
     if n_terms < 0:
-        raise ValueError("ValueError:n_terms isn't a positive value.")
-
-    product = 1.0 #`n_terms=0` will consider the product to be `1`
-    for n in range(1, n_terms + 1):  # go through from 1 to n_terms 
-        numerator = 4 * n**2  
-        denominator = 4 * n**2 - 1  
-        product *= numerator / denominator  # calcaulate the each term result 
-
-    return 2 * product  # pi/2 is wallis formula result
+        raise ValueError("n_terms must be a non-negative integer.")
+    # `n_terms=0` will consider the product to be 1
+    product = 1.0
+    # Iterate from 1 to n_terms
+    for n in range(1, n_terms + 1):
+        numerator = 4 * n**2
+        denominator = 4 * n**2 - 1
+        product *= numerator / denominator  # Compute each term in the product
+    return 2 * product  # Multiply by 2 to compute pi
