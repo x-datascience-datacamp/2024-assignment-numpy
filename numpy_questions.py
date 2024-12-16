@@ -83,12 +83,11 @@ def wallis_product(n_terms):
 
     if n_terms < 0:
         raise ValueError("ValueError:n_terms isn't a positive value.")
-    
-    product = 1.0  #  `n_terms=0` will consider the product to be `1`, so n_terms >= 0 starts product 1.0
+
+    product = 1.0 #`n_terms=0` will consider the product to be `1`
     for n in range(1, n_terms + 1):  # go through from 1 to n_terms 
         numerator = 4 * n**2  
         denominator = 4 * n**2 - 1  
         product *= numerator / denominator  # calcaulate the each term result 
 
     return 2 * product  # pi/2 is wallis formula result
-
