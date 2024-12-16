@@ -68,7 +68,6 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-
     pi = 2
 
     for i in range(1, n_terms + 1):
