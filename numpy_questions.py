@@ -82,5 +82,3 @@ def wallis_product(n_terms):
     pi = 2*float(wallis_product)
 
     return pi
-
-print(max_index([[0, 1], [2, 0]]))
