@@ -45,8 +45,8 @@ def max_index(X):
     rowMax = np.max(X, axis=1)
     maxValue = np.max(rowMax)
     indices = np.where(X == maxValue)
-    i = int(indices[0])
-    j = int(indices[1])
+    i = indices[0][0]
+    j = indices[1][0]
 
     return i, j
 
@@ -82,3 +82,5 @@ def wallis_product(n_terms):
     pi = 2*float(wallis_product)
 
     return pi
+
+print(max_index([[0, 1], [2, 0]]))
