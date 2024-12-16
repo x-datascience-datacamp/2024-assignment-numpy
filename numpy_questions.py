@@ -74,7 +74,6 @@ def wallis_product(n_terms):
     # pi/2 = 2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 6/7 * ...
     # One can see that the denominator is always the previous numerator + 1
     # and the numerator is 2, 4, 6, 8, etc.
-
     pi = 2.
     for i in range(1, n_terms+1):
         pi *= (4*i**2)/(4*i**2 - 1)
