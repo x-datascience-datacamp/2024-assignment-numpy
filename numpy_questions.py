@@ -92,4 +92,4 @@ print(max_index(X))
 
 #trying the second function
 
-print("The approximation if the number pi of the order 100000 is: ", wallis_product(100000))
+print("The approximation if the number pi of the order 1000 is: ", wallis_product(1000))
