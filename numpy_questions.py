@@ -66,7 +66,7 @@ def wallis_product(n_terms):
         The approximation of order `n_terms` of pi using the Wallis product.
     """
     if n_terms < 0:
-        raise ValueError("Number of terms must be non-negative.") 
+        raise ValueError("Number of terms must be non-negative.")
     product = 1.0
 
     for n in range(1, n_terms + 1):
