@@ -27,7 +27,7 @@ def max_index(X):
         The input array.
 
     Returns
-    -------
+    
     (i, j) : tuple(int)
         The row and columnd index of the maximum.
 
