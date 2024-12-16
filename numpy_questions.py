@@ -75,7 +75,7 @@ def wallis_product(n_terms):
 
     product = 1.0  # Initialize product
 
-    # Calculate the Wallis product
+    # Calculate  Wallis product
     for n in range(1, n_terms + 1):
         term = (4 * n**2) / ((4 * n**2) - 1)
         product *= term
