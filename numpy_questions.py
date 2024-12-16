@@ -41,7 +41,12 @@ def max_index(X):
     j = 0
 
     # TODO
-
+    rowMax=np.max(X, axis=1)
+    maxValue=np.max(rowMax)   
+    indices= np.where(X==maxValue)     
+    i=int(indices[0])
+    j=int(indices[1])
+    #return indices
     return i, j
 
 
@@ -64,6 +69,27 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    if n_terms==0: 
+        wallis_product=1
+    else: 
+        wallis_product=1
+        for n in range(n_terms): 
+            wallis_product=wallis_product*((4*(n+1)**2) / (4*(n+1)**2 -1))
+    
+    pi=2*wallis_product
 
-print("hello")
+    return pi
+
+#trying the first function
+X=np.array(
+    [
+        [12,4, 1], 
+        [1, 78, 20]
+    ]
+)
+
+print(max_index(X))
+
+#trying the second function
+
+print("The approximation if the number pi of the order 100000 is: ", wallis_product(100000))
