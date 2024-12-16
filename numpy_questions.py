@@ -19,17 +19,27 @@ import numpy as np
 
 
 def max_index(X):
+    """Retourne les indices (i, j) de la valeur maximale dans une matrice 2D."""
+    if not isinstance(X, np.ndarray):
+        raise ValueError("X doit être un tableau numpy.")
+    if X.ndim != 2:
+        raise ValueError("X doit être une matrice 2D.")
     
-    flat_index = np.argmax(X)  # Flattened index of the maximum
+    # Trouver l'indice aplati du maximum.
+    flat_index = np.argmax(X)
+    # Convertir en indices 2D.
     i, j = divmod(flat_index, X.shape[1])
-
     return i, j
+
 
 
 def wallis_product(n_terms):
     produit = 1
-    for i in range(1, n_terms+1):
-        produit *= 4*i**2/(4*i**2 - 1)
-    return(produit)
+    if n_terms==0:
+        return(2)
+    else:
+        for i in range(1, n_terms+1):
+            produit *= 4*i**2/(4*i**2 - 1)
+    return(2*produit)
 
-print("The approxiamtion of pi is", 2*wallis_product(1000000))
+print("The approxiamtion of pi is", wallis_product(1000000))
