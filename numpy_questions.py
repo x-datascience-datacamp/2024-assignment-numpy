@@ -1,8 +1,10 @@
-"""numpy_questions.py
+"""This module implements functions for numpy-based operations.
 
-This module contains two functions:
+It includes:
 1. max_index: Returns the index of the maximum value in a 2D numpy array.
 2. wallis_product: Computes an approximation of pi using the Wallis product.
+
+The module is designed for practicing numpy, automated tools, and git workflows.
 """
 
 import numpy as np
