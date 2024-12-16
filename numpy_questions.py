@@ -74,9 +74,11 @@ def wallis_product(n_terms):
     else: 
         wallis_product=1
         for n in range(n_terms): 
-            wallis_product=wallis_product*((4*(n+1)**2) / (4*(n+1)**2 -1))
+            term1=(4*(n+1)**2) 
+            term2=term1-1
+            wallis_product=wallis_product*(term1/term2)
     
-    pi=2*wallis_product
+    pi=2*float(wallis_product)
 
     return pi
 
