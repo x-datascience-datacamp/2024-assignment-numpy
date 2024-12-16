@@ -41,15 +41,13 @@ def max_index(X):
     j = 0
 
     # TODO
-    max_idx = np.argmax(X)
-    i, j = np.unravel_index(max_idx, X.shape)
-    '''
-    rowMax=np.max(X, axis=1)
-    maxValue=np.max(rowMax)
-    indices= np.where(X==maxValue)
-    i=int(indices[0])
-    j=int(indices[1])
-    '''
+
+    rowMax = np.max(X, axis=1)
+    maxValue = np.max(rowMax)
+    indices = np.where(X == maxValue)
+    i = int(indices[0])
+    j = int(indices[1])
+
     return i, j
 
 
@@ -75,11 +73,11 @@ def wallis_product(n_terms):
     if n_terms == 0:
         wallis_product = 1
     else:
-        wallis_product=1
+        wallis_product = 1
         for n in range(n_terms):
-            term1=(4*(n+1)**2)
-            term2=term1-1
-            wallis_product=wallis_product*(term1/term2)
+            term1 = (4*(n+1)**2)
+            term2 = term1-1
+            wallis_product = wallis_product*(term1/term2)
 
     pi = 2*float(wallis_product)
 
