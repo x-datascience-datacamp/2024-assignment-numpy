@@ -38,10 +38,10 @@ def max_index(X):
         if the shape is not 2D.
     """
     try:
-        assert isinstance(X, np.ndarray)
-        assert X.ndim == 2
-    except AssertionError as e:
-        raise e
+        if not isinstance(X, np.ndarray) or X.ndim != 2:
+            raise ValueError
+    except ValueError as e:
+        raise ValueError("Input must be a 2D numpy array") from e
 
     i, j = np.unravel_index(np.argmax(X), X.shape)
     return int(i), int(j)
