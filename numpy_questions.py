@@ -48,8 +48,8 @@ def max_index(X):
         if m is None: m = a
         elif a > m:
             m = a
-            i = idx % X.shape[1]
-            j = int(np.floor(idx / X.shape[1]))
+            j = idx % X.shape[1]
+            i = int(np.floor(idx / X.shape[1]))
 
     return i, j
 
