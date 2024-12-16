@@ -40,7 +40,16 @@ def max_index(X):
     i = 0
     j = 0
 
-    # TODO
+    if not(isinstance(X, np.ndarray)): raise(ValueError)
+    if X.ndim != 2: raise(ValueError)
+
+    m = None
+    for (idx, a) in enumerate(X.ravel()):
+        if m is None: m = a
+        elif a > m:
+            m = a
+            i = idx % X.shape[1]
+            j = int(np.floor(idx / X.shape[1]))
 
     return i, j
 
