@@ -42,10 +42,8 @@ def max_index(X):
 
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
-    
     max_idx = np.unravel_index(np.argmax(X), X.shape)
     return max_idx
-
 
 
 def wallis_product(n_terms):
@@ -68,7 +66,6 @@ def wallis_product(n_terms):
     if n_terms < 0:
         raise ValueError("Number of terms must be non-negative.")
     product = 1.0
-
     for n in range(1, n_terms + 1):
         numerator = 4 * n**2
         denominator = (4 * n**2) - 1
@@ -76,4 +73,3 @@ def wallis_product(n_terms):
 
     pi = product * 2
     return pi
-
