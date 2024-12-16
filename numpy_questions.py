@@ -41,7 +41,7 @@ def max_index(X):
     j = 0
 
     # TODO
-
+    X = np.array(X)
     rowMax = np.max(X, axis=1)
     maxValue = np.max(rowMax)
     indices = np.where(X == maxValue)
