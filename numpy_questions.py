@@ -15,13 +15,9 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
-import numpy as np
-import math
-
-
-
 
 import numpy as np
+
 
 def max_index(X):
     """Return the index of the maximum in a numpy array.
@@ -44,16 +40,16 @@ def max_index(X):
     """
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array.")
-    
+
     if X.ndim != 2:
         raise ValueError("Input must be a 2D numpy array.")
 
     # Find the flattened index of the maximum value
     flat_index = np.argmax(X)
-    
+
     # Convert the flat index to row and column indices
     i, j = np.unravel_index(flat_index, X.shape)
-    
+
     return i, j
 
 
@@ -76,15 +72,15 @@ def wallis_product(n_terms):
     """
     if n_terms < 0:
         raise ValueError("Number of terms must be non-negative.")
-    
+
     product = 1.0  # Initialize product
-    
+
     # Calculate the Wallis product
     for n in range(1, n_terms + 1):
         term = (4 * n**2) / ((4 * n**2) - 1)
         product *= term
-    
+
     # Multiply product by 2 to approximate pi
     pi_approx = 2 * product
-    
+
     return pi_approx
