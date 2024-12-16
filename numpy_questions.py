@@ -40,13 +40,13 @@ def max_index(X):
     i = 0
     j = 0
     if X is None or not isinstance(X, np.ndarray):
-        raise ValueError(f"numpy array expected")
-        
+        raise ValueError("numpy array expected")
+
     s = X.shape
 
     if not len(s) == 2:
-        raise ValueError(f"2 Dimensionnal array expected")
-        
+        raise ValueError("2 Dimensionnal array expected")
+
     for x in range(s[0]):
         for y in range(s[1]):
             if X[x][y] > X[i][j]:
@@ -78,7 +78,7 @@ def wallis_product(n_terms):
     pi = 1
     if n_terms == 0:
         return 2*pi
-    else :
+    else:
         for n in range(1, n_terms+1):
             pi = pi * (4 * n ** 2) / (4 * (n ** 2) - 1)
     return 2*pi
