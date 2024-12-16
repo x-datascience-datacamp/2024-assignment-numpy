@@ -20,7 +20,7 @@ import numpy as np
 
 def max_index(X):
     """Return the index of the maximum in a numpy array.
-j
+
     Parameters
     ----------
     X : ndarray of shape (n_samples, n_features)
@@ -75,6 +75,6 @@ def wallis_product(n_terms):
     # One can see that the denominator is always the previous numerator + 1
     # and the numerator is 2, 4, 6, 8, etc.
     pi = 2.
-    for i in range(1, n_terms+1):
-        pi *= (4*i**2)/(4*i**2 - 1)
+    for i in range(1, n_terms + 1):
+        pi *= (4 * i**2) / (4 * i**2 - 1)
     return pi
