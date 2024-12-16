@@ -45,8 +45,8 @@ def max_index(X):
     i, j = np.unravel_index(max_idx, X.shape)
     '''
     rowMax=np.max(X, axis=1)
-    maxValue=np.max(rowMax)   
-    indices= np.where(X==maxValue)     
+    maxValue=np.max(rowMax)
+    indices= np.where(X==maxValue)
     i=int(indices[0])
     j=int(indices[1])
     '''
@@ -72,23 +72,15 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    if n_terms==0: 
+    if n_terms == 0:
+        wallis_product = 1
+    else:
         wallis_product=1
-    else: 
-        wallis_product=1
-        for n in range(n_terms): 
-            term1=(4*(n+1)**2) 
+        for n in range(n_terms):
+            term1=(4*(n+1)**2)
             term2=term1-1
             wallis_product=wallis_product*(term1/term2)
-    
-    pi=2*float(wallis_product)
+
+    pi = 2*float(wallis_product)
 
     return pi
-
-#trying the first function
-X=np.array(
-    [
-        [12,4, 1], 
-        [1, 78, 20]
-    ]
-)
