@@ -23,7 +23,7 @@ def max_index(X):
 
     Parameters
     ----------
-    X : ndarray of shape (n_samples, n_features)
+    X : ndarray of shape (n_samples, n_features
         The input array.
 
     Returns
@@ -39,8 +39,11 @@ def max_index(X):
     """
     i = 0
     j = 0
-
     # TODO
+    try:
+        (i, j) = np.unravel_index(np.argmax(X, axis=None), X.shape)
+    except Exception:
+        raise ValueError
 
     return i, j
 
@@ -64,4 +67,8 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    k = np.arange(1, n_terms + 1)
+    terms = 4.0 * k**2 / (4.0 * k**2 - 1)
+
+    return 2 * np.prod(terms)
