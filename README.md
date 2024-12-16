@@ -7,7 +7,7 @@
   - Do a pull request on a GitHub repository
   - Format your code properly using standard Python conventions
   - Make your code pass tests run automatically on a continuous integration system (GitHub actions)
-
+ 
 ## How?
 
   - Fork the repository by clicking on the `Fork` button on the upper right corner
