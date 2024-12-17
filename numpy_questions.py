@@ -18,25 +18,53 @@ errors by calling `flake8` at the root of the repo.
 import numpy as np
 
 
+
 def max_index(X):
-    """Retourne les indices (i, j) de la valeur maximale dans une matrice 2D."""
+    """
+    Return the indices (i, j) of the maximum value in a 2D matrix.
+
+    Parameters:
+    X (np.ndarray): A 2D numpy array.
+
+    Returns:
+    tuple: Indices (i, j) of the maximum value in the array.
+
+    Raises:
+    ValueError: If X is not a numpy array or not a 2D array.
+    """
     if not isinstance(X, np.ndarray):
-        raise ValueError("X doit être un tableau numpy.")
+        raise ValueError("X must be a numpy array.")
     if X.ndim != 2:
-        raise ValueError("X doit être une matrice 2D.")
-    # Trouver l'indice aplati du maximum.
+        raise ValueError("X must be a 2D array.")
+
+    # Find the flattened index of the maximum value
     flat_index = np.argmax(X)
-    # Convertir en indices 2D.
+    # Convert to 2D indices
     i, j = divmod(flat_index, X.shape[1])
     return i, j
 
 
-
 def wallis_product(n_terms):
-    produit = 1
-    if n_terms==0:
-        return(2)
-    else:
-        for i in range(1, n_terms+1):
-            produit *= 4*i**2/(4*i**2 - 1)
-    return(2*produit)
+    """
+    Approximate the value of pi using the Wallis product.
+
+    Parameters:
+    n_terms (int): The number of terms in the Wallis product.
+
+    Returns:
+    float: Approximation of pi.
+
+    Raises:
+    ValueError: If n_terms is negative.
+    """
+    if not isinstance(n_terms, int) or n_terms < 0:
+        raise ValueError("n_terms must be a non-negative integer.")
+
+    product = 1.0
+    if n_terms == 0:
+        return 2.0
+
+    for i in range(1, n_terms + 1):
+        product *= (4 * i**2) / (4 * i**2 - 1)
+
+    return 2 * product
