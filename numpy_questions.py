@@ -29,7 +29,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -37,11 +37,9 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
 
-    # TODO
-
+    max_pos = np.argmax(X)
+    i, j = np.unravel_index(max_pos, X.shape)
     return i, j
 
 
@@ -64,4 +62,10 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    product = 1.0
+    for i in range(1, n_terms + 1):
+        numerator = 4.0 * i * i
+        denominator = numerator - 1.0
+        product *= numerator / denominator
+
+    return 2.0 * product
