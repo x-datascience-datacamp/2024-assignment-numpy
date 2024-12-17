@@ -24,7 +24,6 @@ def max_index(X):
         raise ValueError("X doit être un tableau numpy.")
     if X.ndim != 2:
         raise ValueError("X doit être une matrice 2D.")
-    
     # Trouver l'indice aplati du maximum.
     flat_index = np.argmax(X)
     # Convertir en indices 2D.
@@ -41,5 +40,3 @@ def wallis_product(n_terms):
         for i in range(1, n_terms+1):
             produit *= 4*i**2/(4*i**2 - 1)
     return(2*produit)
-
-print("The approxiamtion of pi is", wallis_product(1000000))
