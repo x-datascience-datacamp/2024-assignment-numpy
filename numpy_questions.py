@@ -47,8 +47,8 @@ def max_index(X):
     if X.ndim != 2:
         raise ValueError("Input must be a 2D numpy array.")
 
-    l = 0
-    c = 0
+    ligne = 0
+    colonne = 0
 
     n_samples, n_features = X.shape
     max = 0
@@ -57,9 +57,8 @@ def max_index(X):
         for j in range(n_features):
             if X[i, j] > max:
                 max = X[i, j]
-                l, c = i, j
-
-    return l, c
+                ligne, colonne = i, j
+    return ligne, colonne
 
 
 def wallis_product(n_terms):
