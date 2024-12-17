@@ -4,7 +4,6 @@ The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
     * Use automated tools to validate the code (`pytest` and `flake8`)
     * Submit a Pull-Request on github to practice `git`.
-
 The two functions below are skeleton functions. The docstrings explain what
 are the inputs, the outputs and the expected error. Fill the function to
 complete the assignment. The code should be able to pass the test that we
@@ -41,6 +40,14 @@ def max_index(X):
     j = 0
 
     # TODO
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input must be a numpy array.")
+    if X.ndim != 2:
+        raise ValueError("Input array must be 2-dimensional.")
+
+    # Find the index of the maximum value
+    max_idx = np.unravel_index(np.argmax(X), X.shape)
+    return max_idx
 
     return i, j
 
@@ -64,4 +71,13 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    if n_terms < 0:
+        raise ValueError("Number of terms must be non-negative.")
+
+    product = 1.0
+    for n in range(1, n_terms + 1):
+        numerator = 4 * n ** 2
+        denominator1 = numerator - 1
+        product *= numerator / denominator1
+
+    return 2 * product
