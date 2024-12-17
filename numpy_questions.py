@@ -3,7 +3,7 @@
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
     * Use automated tools to validate the code (`pytest` and `flake8`)
-    * Submit a Pull-Request on github to practice `git`.
+    * Submit a Pull-Request on gitHub to practice `git`.
 
 The two functions below are skeleton functions. The docstrings explain what
 are the inputs, the outputs and the expected error. Fill the function to
@@ -15,6 +15,7 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
+
 import numpy as np
 
 
@@ -40,7 +41,21 @@ def max_index(X):
     i = 0
     j = 0
 
+
     # TODO
+    if not isinstance(X, np.ndarray):
+        raise ValueError("L'argument doit être une numpy array.")
+
+    forme = X.shape
+
+    if len(forme) != 2:
+        raise ValueError("L'argument doit être en 2D.")
+
+    n_samples, n_features = forme
+
+    index = np.argmax(X)
+    i = int(index//n_features)
+    j = int(index%n_features)
 
     return i, j
 
@@ -62,6 +77,11 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    return 0.
+    if n_terms == 0:
+        return 2
+
+    wal_pro = 1
+    for i in range(1, n_terms + 1):
+        wal_pro *= (4 * i ** 2) / ((4 * i ** 2) - 1)
+
+    return wal_pro * 2.
