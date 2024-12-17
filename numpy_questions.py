@@ -52,7 +52,6 @@ def max_index(X):
                 if X[a, b] > X[i, j]:
                     i = a
                     j = b
-
     return i, j
 
 
