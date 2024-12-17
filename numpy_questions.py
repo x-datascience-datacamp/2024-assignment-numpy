@@ -17,8 +17,6 @@ errors by calling `flake8` at the root of the repo.
 """
 import numpy as np
 
-
-
 def max_index(X):
     """
     Return the indices (i, j) of the maximum value in a 2D matrix.
@@ -42,7 +40,6 @@ def max_index(X):
     # Convert to 2D indices
     i, j = divmod(flat_index, X.shape[1])
     return i, j
-
 
 def wallis_product(n_terms):
     """
