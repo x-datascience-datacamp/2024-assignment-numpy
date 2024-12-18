@@ -15,7 +15,7 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 
-Exercise 1 
+Exercise 1
 """
 
 import numpy as np
@@ -41,7 +41,6 @@ def wallis_product(n_terms):
         raise Exception("Input has to be an integer.")
     if n_terms == 0:
         return 2.0  # By definition, return 2 for 0 terms
-
     product = 1.0
     for n in range(1, n_terms + 1):
         product *= (4 * n ** 2) / ((4 * n ** 2) - 1)
