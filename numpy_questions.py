@@ -26,7 +26,7 @@ import numpy as np
 def max_index(X):
     if not isinstance(X, np.ndarray):
         raise ValueError("Input  has ot be a numpy array.")
-    if not isinstance (X.ndim != 2) :
+    if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
     max_idx = np.argmax(X) #find the maximum value of the array 
     
@@ -40,14 +40,13 @@ def max_index(X):
 def wallis_product(n_terms):
     if not isinstance(n_terms, int): 
         raise Exception ('Input has to be a numpy array')
-    if n_terms ==0:
-        return 1 
-    product = 1 
-    for n in range(1, n_terms+1):
-        term = (4 * n ** 2) / ((4 * n ** 2) - 1)
-        product *= term
-        
-    pi_approximation = 2* product 
-    return pi_approximation 
+    if n_terms == 0:
+        return 2.0  # By definition, return 2 for 0 terms
+
+    product = 1.0
+    for n in range(1, n_terms + 1):
+        product *= (4 * n ** 2) / ((4 * n ** 2) - 1)
+
+    return 2 * product
 
 
