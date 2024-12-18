@@ -29,7 +29,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -37,14 +37,12 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-
-    # TODO
     if not isinstance(X, np.ndarray):
-        raise ValueError("Input  has ot be a numpy array.")
-    if not isinstance (X.ndim != 2) :
+        raise ValueError("Input has to be a numpy array.")
+    if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
-    max_idx = np.argmax(X) #find the maximum value of the array 
-    
+
+    max_idx = np.argmax(X)  # Find the maximum value of the array
     i, j = divmod(max_idx, X.shape[1])
 
     return i, j
@@ -67,16 +65,16 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-   if not isinstance(n_terms, int): 
-        raise Exception ('Input has to be a numpy array')
-    if n_terms ==0:
+    if not isinstance(n_terms, int): 
+        raise Exception("Input has to be an integer")
+    
+    if n_terms == 0:
         return 1 
+    
     product = 1
-    for n in range(1, n_terms+1):
+    for n in range(1, n_terms + 1):
         term = (4 * n ** 2) / ((4 * n ** 2) - 1)
         product *= term
         
-    pi_approximation = 2* product 
-    return pi_approximation 
+    pi_approximation = 2 * product 
+    return pi_approximation
