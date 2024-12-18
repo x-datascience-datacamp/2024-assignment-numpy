@@ -68,7 +68,7 @@ def wallis_product(n_terms):
         raise Exception("Input has to be an integer")
     
     if n_terms == 0:
-        return 1 
+        return 2.0  # Fix: Return 2.0 when n_terms == 0
     
     product = 1
     for n in range(1, n_terms + 1):
