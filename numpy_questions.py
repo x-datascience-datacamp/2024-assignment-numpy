@@ -1,4 +1,5 @@
-"""Assignment - using numpy and making a PR.
+"""
+Assignment - using numpy and making a PR.
 
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
@@ -29,7 +30,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -37,10 +38,17 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
+    # Validate the input
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input must be a numpy array.")
+    if X.ndim != 2:
+        raise ValueError("Input array must be 2D.")
 
-    # TODO
+    # Find the index of the maximum value
+    max_index_flat = np.argmax(X)
+
+    # Convert the flat index to row, column indices
+    i, j = np.unravel_index(max_index_flat, X.shape)
 
     return i, j
 
@@ -64,4 +72,17 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+
+    # If there are no terms, the result is 1
+    if n_terms == 0:
+        return 1.0
+
+    # Initialize the product as 1
+    product = 1.0
+
+    # Compute the Wallis product
+    for n in range(1, n_terms + 1):
+        product *= (4 * n**2) / (4 * n**2 - 1)
+
+    # Multiply by 2 to approximate pi
+    return 2 * product
