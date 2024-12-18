@@ -60,7 +60,7 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    pi = 1.
+    pi = 2.
     for k in range(1, n_terms+1):
         four_k_square = 4 * (k ** 2)
         pi *= four_k_square / (four_k_square - 1)
