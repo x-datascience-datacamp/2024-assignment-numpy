@@ -41,7 +41,6 @@ def max_index(X):
         raise ValueError("Input has to be a numpy array.")
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
-
     max_idx = np.argmax(X)  # Find the maximum value of the array
     i, j = divmod(max_idx, X.shape[1])
 
