@@ -44,11 +44,11 @@ def max_index(X):
     i = 0
     j = 0
     current_max = -np.inf
-    for i in range(X.shape[0]):
-        for j in range(X.shape[1]):
-            if X[i, j] > current_max:
-                X[i, j] = current_max
-                i, j = i, j
+    for k in range(X.shape[0]):
+        for l in range(X.shape[1]):
+            if X[k, l] > current_max:
+                current_max = X[k, l]
+                i, j = k, l
 
     return i, j
 
