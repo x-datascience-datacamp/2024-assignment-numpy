@@ -17,7 +17,6 @@ errors by calling `flake8` at the root of the repo.
 
 Exercise 1
 """
-
 import numpy as np
 
 
@@ -31,7 +30,6 @@ def max_index(X):
     i, j = divmod(max_idx, X.shape[1])  # Returns the indexes of the maximum
 
     return i, j
-
 
 """Exercise 2"""
 
