@@ -1,6 +1,7 @@
-"""Ce module contient des fonctions pour utiliser numpy et réaliser un calcul
-d’approximation de pi via le produit de Wallis, ainsi que pour trouver
-l’indice du maximum dans un tableau numpy.
+"""Ce module contient des fonctions pour utiliser numpy et réaliser un calcul.
+
+Il s’agit d’un exercice pratique pour approximer pi via le produit de Wallis,
+et pour trouver l’indice du maximum dans un tableau numpy.
 """
 
 import numpy as np
@@ -27,7 +28,6 @@ def max_index(X):
     """
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array.")
-
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
 
