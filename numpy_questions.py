@@ -44,10 +44,10 @@ def max_index(X):
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
 
-    # Find the flat index of the maximum value
+    # Find the index of the maximum value
     max_index_flat = np.argmax(X)
 
-    # Convert flat index to (row, column)
+    # Convert the flat index to row, column indices
     i, j = np.unravel_index(max_index_flat, X.shape)
 
     return i, j
@@ -73,18 +73,16 @@ def wallis_product(n_terms):
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
 
-    # Handle edge case for zero terms
+    # If there are no terms, the result is 1
     if n_terms == 0:
-        return 2.0
+        return 1.0
 
-    # Initialize product
+    # Initialize the product as 1
     product = 1.0
 
-    # Compute the Wallis product iteratively
+    # Compute the Wallis product
     for n in range(1, n_terms + 1):
-        numerator = 4 * n**2
-        denominator = 4 * n**2 - 1
-        product *= numerator / denominator
+        product *= (4 * n**2) / (4 * n**2 - 1)
 
     # Multiply by 2 to approximate pi
     return 2 * product
