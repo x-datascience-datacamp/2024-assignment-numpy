@@ -38,7 +38,7 @@ def max_index(X):
 
 def wallis_product(n_terms):
     if not isinstance(n_terms, int):
-        raise Exception("Input has to be a numpy array")
+        raise Exception("Input has to be an integer.")
     if n_terms == 0:
         return 2.0  # By definition, return 2 for 0 terms
 
@@ -47,5 +47,3 @@ def wallis_product(n_terms):
         product *= (4 * n ** 2) / ((4 * n ** 2) - 1)
 
     return 2 * product
-
-
