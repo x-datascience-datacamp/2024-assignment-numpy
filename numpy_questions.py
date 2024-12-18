@@ -18,28 +18,26 @@ errors by calling `flake8` at the root of the repo.
 Exercise 1 
 """
 
-
 import numpy as np
-
-
 
 def max_index(X):
     if not isinstance(X, np.ndarray):
-        raise ValueError("Input  has ot be a numpy array.")
+        raise ValueError("Input has to be a numpy array.")
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
-    max_idx = np.argmax(X) #find the maximum value of the array 
-    
-    i, j = divmod(max_idx, X.shape[1])   # returns the indexes fo the maximum 
-    
-    return i,j
+
+    max_idx = np.argmax(X)  # Find the maximum value of the array
+    i, j = divmod(max_idx, X.shape[1])  # Returns the indexes of the maximum
+
+    return i, j
 
 
 """Exercise 2"""
 
+
 def wallis_product(n_terms):
-    if not isinstance(n_terms, int): 
-        raise Exception ('Input has to be a numpy array')
+    if not isinstance(n_terms, int):
+        raise Exception("Input has to be a numpy array")
     if n_terms == 0:
         return 2.0  # By definition, return 2 for 0 terms
 
