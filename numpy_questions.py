@@ -21,6 +21,24 @@ import numpy as np
 
 
 def max_index(X):
+   """
+    Return the index of the maximum value in a 2D numpy array.
+
+    Parameters
+    ----------
+    X : np.ndarray
+        A 2D numpy array.
+
+    Returns
+    -------
+    tuple
+        A tuple (i, j) representing the row and column index of the maximum value.
+
+    Raises
+    ------
+    ValueError
+        If the input is not a 2D numpy array.
+    """
     if not isinstance(X, np.ndarray):
         raise ValueError("Input has to be a numpy array.")
     if X.ndim != 2:
@@ -36,6 +54,24 @@ def max_index(X):
 
 
 def wallis_product(n_terms):
+   """
+    Compute an approximation of pi using the Wallis product.
+
+    Parameters
+    ----------
+    n_terms : int
+        The number of terms to compute in the Wallis product.
+
+    Returns
+    -------
+    float
+        The approximation of pi based on the Wallis product.
+
+    Raises
+    ------
+    Exception
+        If the input is not an integer.
+    """
     if not isinstance(n_terms, int):
         raise Exception("Input has to be an integer.")
     if n_terms == 0:
