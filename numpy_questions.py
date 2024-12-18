@@ -1,3 +1,8 @@
+"""Ce module contient des fonctions pour utiliser numpy et réaliser un calcul
+d’approximation de pi via le produit de Wallis, ainsi que pour trouver
+l’indice du maximum dans un tableau numpy.
+"""
+
 import numpy as np
 
 
