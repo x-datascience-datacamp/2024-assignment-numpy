@@ -80,4 +80,3 @@ def wallis_product(n_terms):
         
     pi_approximation = 2* product 
     return pi_approximation 
-   
