@@ -54,8 +54,8 @@ def max_index(X):
     n_samples, n_features = forme
 
     index = np.argmax(X)
-    i = int(index//n_features)
-    j = int(index%n_features)
+    i = int(index // n_features)
+    j = int(index % n_features)
 
     return i, j
 
