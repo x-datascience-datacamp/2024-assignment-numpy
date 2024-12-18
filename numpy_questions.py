@@ -1,4 +1,5 @@
 """Assignment - using numpy and making a PR.
+
 The goals of this assignment are:
     * Use numpy in practice with two easy exercises.
     * Use automated tools to validate the code (`pytest` and `flake8`)
@@ -14,13 +15,13 @@ We also ask to respect the pep8 convention: https://pep8.org.
 This will be enforced with `flake8`. You can check that there is no flake8
 errors by calling `flake8` at the root of the repo.
 """
-
 import numpy as np
 
 
 def max_index(X):
 
     """Return the index of the maximum in a numpy array.
+
     Parameters
     ----------
     X : ndarray of shape (n_samples, n_features)
@@ -35,7 +36,6 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-
     i = 0
     j = 0
     # TODO
@@ -51,6 +51,7 @@ def max_index(X):
 def wallis_product(n_terms):
 
     """Implement the Wallis product to compute an approximation of pi.
+
     See:
     https://en.wikipedia.org/wiki/Wallis_product
     Parameters
@@ -63,7 +64,6 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
 
