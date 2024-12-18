@@ -38,20 +38,19 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    # Validate the input
+    # Ensure input is a numpy array and 2D
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array.")
     if X.ndim != 2:
         raise ValueError("Input array must be 2D.")
 
-    # Find the index of the maximum value
+    # Find the flat index of the maximum value
     max_index_flat = np.argmax(X)
 
-    # Convert the flat index to row, column indices
+    # Convert flat index to (row, column)
     i, j = np.unravel_index(max_index_flat, X.shape)
 
     return i, j
-
 
 
 def wallis_product(n_terms):
@@ -74,18 +73,18 @@ def wallis_product(n_terms):
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
 
-    # If no terms are specified, the product is 1
+    # Handle edge case for zero terms
     if n_terms == 0:
-        return 2.0  # Fix to match the expected test behavior
+        return 2.0
 
-    # Initialize the product as 1
+    # Initialize product
     product = 1.0
 
-    # Compute the Wallis product
+    # Compute the Wallis product iteratively
     for n in range(1, n_terms + 1):
         numerator = 4 * n**2
         denominator = 4 * n**2 - 1
         product *= numerator / denominator
 
-    # Multiply the product by 2 to approximate pi
+    # Multiply by 2 to approximate pi
     return 2 * product
