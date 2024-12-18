@@ -65,12 +65,11 @@ def wallis_product(n_terms):
     """
     if not isinstance(n_terms, int):
         raise Exception("Input has to be an integer")
-    
     if n_terms == 0:
         return 2.0  # Fix: Return 2.0 when n_terms == 0
     product = 1
     for n in range(1, n_terms + 1):
         term = (4 * n ** 2) / ((4 * n ** 2) - 1)
-        product *= term     
+        product *= term   
     pi_approximation = 2 * product
     return pi_approximation
