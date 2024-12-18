@@ -40,7 +40,7 @@ def max_index(X):
     i = 0
     j = 0
 
-     # Validate input is a numpy array
+    # Validate input is a numpy array
     if not isinstance(X, np.ndarray):
         raise ValueError("Input must be a numpy array.")
     # Validate input shape
