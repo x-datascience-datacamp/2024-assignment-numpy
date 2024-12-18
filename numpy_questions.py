@@ -31,6 +31,7 @@ def max_index(X):
 
     return i, j
 
+
 """Exercise 2"""
 
 
