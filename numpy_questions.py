@@ -48,9 +48,7 @@ def max_index(X):
 
     # Convert the flat index to row and column indices
     i, j = np.unravel_index(max_index_flat, X.shape)
-
     return i, j
-
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
@@ -69,8 +67,7 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
-    # For n_terms=0, the product is effectively 1 (no factors applied).
-    # At the end, we return 2 * product. So if n_terms=0, we return 2.0.
+    # If there are no terms, the product = 1 before multiplying by 2
     if n_terms == 0:
         return 2.0
 
