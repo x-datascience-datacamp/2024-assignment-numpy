@@ -25,4 +25,4 @@
 
 ## Getting Help
 
-If you need help ask on the Slack of the DataCamp course.
+If you need help ask on the Slack of the DataCamp course !
