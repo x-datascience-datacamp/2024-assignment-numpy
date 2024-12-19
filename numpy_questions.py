@@ -19,7 +19,6 @@ import numpy as np
 
 
 def max_index(X):
-    fdqsfsd
     """Return the index of the maximum in a numpy array.
     dsvsdf
     Parameters
