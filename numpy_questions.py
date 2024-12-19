@@ -37,16 +37,18 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    i = 0
-    j = 0
+    # Check if X is a numpy array
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input must be a numpy array.")
 
-  
-    if X.ndim != 2:
+    # Check if X is 2D
+    if X is None or X.ndim != 2:
         raise ValueError("Input array must be 2D.")
 
-
+    # Find the indices of the maximum value
     max_idx = np.unravel_index(np.argmax(X), X.shape)
     return max_idx
+
 
 def wallis_product(n_terms):
     """Implement the Wallis product to compute an approximation of pi.
@@ -75,4 +77,5 @@ def wallis_product(n_terms):
         product *= numerator / denominator
 
     return 2 * product
+
 
