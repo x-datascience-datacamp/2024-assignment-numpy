@@ -40,13 +40,13 @@ def max_index(X):
     i = 0
     j = 0
 
-    if not isinstance(X, np.ndarray)  :
+    if not isinstance(X, np.ndarray):
         raise ValueError
-    if len(X.shape) != 2 :
+    if len(X.shape) != 2:
         raise ValueError
-        
+
     index_linked = np.argmax(X).ravel()
-    
+
     i, j = np.unravel_index(index_linked, X.shape)
 
     return i, j
@@ -71,10 +71,11 @@ def wallis_product(n_terms):
     """
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    if (n_terms==0) :
+    if (n_terms == 0):
         pi = 1
-    else :
-        n = np.arange(1, n_terms +1, dtype=np.float64)  # Generate n = 1, 2, ..., n_terms
+    else:
+        # Generate n = 1, 2, ..., n_terms
+        n = np.arange(1, n_terms + 1, dtype=np.float64)
         ratios = (4 * n**2) / ((2 * n - 1) * (2 * n + 1))
         pi = np.prod(ratios)
     return pi*2
