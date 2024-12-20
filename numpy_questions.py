@@ -37,12 +37,11 @@ def max_index(X):
         If the input is not a numpy array or
         if the shape is not 2D.
     """
-    #handle exceptions
-    if not isinstance(X, np.ndarray) :
+    # handle exceptions
+    if not isinstance(X, np.ndarray):
         raise ValueError("The argument is not an np.array")
-    if np.ndim(X) != 2 : 
+    if np.ndim(X) != 2:
         raise ValueError("The matrix's dimension is not 2")
-
 
     i_max = 0
     # TODO
@@ -54,18 +53,17 @@ def max_index(X):
     for i in range(n_samples):
         j_max = 0
         for j in range(n_features-1):
-            if X[i,j_max] < X[i,j+1] :
+            if X[i, j_max] < X[i, j+1]:
                 j_max = j+1
 
-        max_per_line.append(X[i,j_max])
+        max_per_line.append(X[i, j_max])
         index.append(j_max)
 
-    for i in range(n_samples-1) : 
-        if max_per_line[i_max] < max_per_line[i+1] :
+    for i in range(n_samples-1):
+        if max_per_line[i_max] < max_per_line[i+1]:
             i_max = i+1
     j_max = index[i_max]
     return i_max, j_max
-
 
 
 def wallis_product(n_terms):
@@ -90,10 +88,8 @@ def wallis_product(n_terms):
 
     wallis = 1
 
-    for i in range(1, n_terms+1): 
-        wallis = wallis*(4*i**2/(4*i**2 -1))
+    for i in range(1, n_terms+1):
+        wallis = wallis*(4*i**2/(4*i**2 - 1))
     pi = 2*wallis
-    
-    return pi
 
-A = [1,       2,3]
+    return pi
