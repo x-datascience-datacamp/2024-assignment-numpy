@@ -42,15 +42,15 @@ def max_index(X):
 
     if X is None:
         raise ValueError("Input is None")
-    
+
     if not isinstance(X, np.ndarray):
         raise ValueError("Input is not a valid numpy array")
-    
+
     if len(X.shape) != 2:
         raise ValueError("Input shape is not 2D")
-    
+
     max_val = X[i, j]
-    
+
     for row_idx in range(X.shape[0]):
         for col_idx in range(X.shape[1]):
             if X[row_idx, col_idx] > max_val:
