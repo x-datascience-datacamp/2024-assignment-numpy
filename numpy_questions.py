@@ -29,7 +29,7 @@ def max_index(X):
     Returns
     -------
     (i, j) : tuple(int)
-        The row and columnd index of the maximum.
+        The row and column index of the maximum.
 
     Raises
     ------
@@ -39,9 +39,11 @@ def max_index(X):
     """
     i = 0
     j = 0
-
-    # TODO
-
+    if type(X) is not np.ndarray:
+        raise ValueError
+    if len(X.shape) != 2:
+        raise ValueError
+    i, j = np.unravel_index(np.argmax(X), X.shape)
     return i, j
 
 
@@ -62,6 +64,12 @@ def wallis_product(n_terms):
     pi : float
         The approximation of order `n_terms` of pi using the Wallis product.
     """
+
     # XXX : The n_terms is an int that corresponds to the number of
     # terms in the product. For example 10000.
-    return 0.
+    if type(n_terms) is not int:
+        raise TypeError
+    product = 1
+    for n in range(0, n_terms):
+        product = product*((4*((n+1)**2))/(4*((n+1)**2)-1))
+    return product*2
