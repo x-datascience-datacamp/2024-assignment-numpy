@@ -39,14 +39,25 @@ def max_index(X):
     """
     i = 0
     j = 0
-
-    # TODO
-
-    return i, j
+    if not isinstance(X, np.ndarray):
+        raise ValueError("Input must be a numpy array.")
+    if X.ndim == 2:
+        max_index = []
+        max_value = []
+        for n in range(X.shape[0]):
+            max_index.append(np.argmax(X[n]))
+            max_value.append(X[n, max_index[-1]])
+        max_index2 = np.argmax(max_value)
+        i = max_index2
+        j = max_index[max_index2]
+        print(max_index, max_index2)
+        return i, j
+    else:
+        raise ValueError("input must be a 2-dimension array")
 
 
 def wallis_product(n_terms):
-    """Implement the Wallis product to compute an approximation of pi.
+    """Compute an approximation of π using the Wallis product formula.
 
     See:
     https://en.wikipedia.org/wiki/Wallis_product
@@ -54,14 +65,19 @@ def wallis_product(n_terms):
     Parameters
     ----------
     n_terms : int
-        Number of steps in the Wallis product. Note that `n_terms=0` will
-        consider the product to be `1`.
+        Number of terms in the Wallis product. Must be >= 1.
 
     Returns
     -------
-    pi : float
-        The approximation of order `n_terms` of pi using the Wallis product.
+    pi_approx : float
+        Approximation of π using the Wallis product with `n_terms`.
     """
-    # XXX : The n_terms is an int that corresponds to the number of
-    # terms in the product. For example 10000.
-    return 0.
+    if n_terms == 0:
+        return 2
+    else:
+        product = 1.0
+        for i in range(1, n_terms + 1):
+            term = (4 * i**2) / (4 * i**2 - 1)
+            product *= term
+
+        return product * 2
